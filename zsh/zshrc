@@ -4,7 +4,7 @@
 #                    ⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄
 #                    ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄
 #
-# Personal zsh configuration of Jess Archer <jess@jessarcher.com>
+# Ashraf Alhaj
 
 #--------------------------------------------------------------------------
 # Oh My Zsh
@@ -96,7 +96,6 @@ alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -p
 alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
-alias a="artisan"
 alias art="php artisan"
 alias tinker="artisan tinker"
 alias seed="artisan db:seed"
