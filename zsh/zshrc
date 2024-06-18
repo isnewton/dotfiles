@@ -20,7 +20,6 @@ VI_MODE_SET_CURSOR=true
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
 plugins=(
-    artisan
     npm
     vi-mode
     composer
@@ -33,6 +32,7 @@ plugins=(
     rsync
     tmux
     z
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -92,15 +92,14 @@ unsetopt sharehistory
 alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
-alias cat="bat"
 alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2"
 alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
 alias a="artisan"
+alias art="php artisan"
 alias tinker="artisan tinker"
 alias seed="artisan db:seed"
-alias serve="artisan serve"
 alias mfs="artisan migrate:fresh --seed"
 alias sqlit="sed -e 's/\(DB_.*\)/# \\1/g' -e 's/# \(DB_CONNECTION=\).*/\\1sqlite/g' -i .env"
 alias lenv="cp -n .env.example .env && (grep '^APP_KEY=.\+' .env > /dev/null || artisan key:generate)"

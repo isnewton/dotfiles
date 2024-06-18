@@ -19,14 +19,6 @@
 )
 (parameter
   (variable_name) @parameter)
-(type_list
-  [
-    (array_type)
-    (primitive_type)
-    (named_type)
-    (optional_type)
-  ] @type)
-(type_list) @nospell
 (variable_name) @nospell
 (tag
   (description (text) @text))
@@ -39,7 +31,6 @@
   (email_address) @text.uri
 )
 
-(type_list "|" @keyword)
 (variable_name "$" @keyword)
 (tag
   (tag_name) @_tag_name

@@ -91,3 +91,9 @@
     rebase = false
 [init]
     defaultBranch = main
+[user]
+	email = ashrfalhag.11@gmail.com
+	name = Ashraf Alhaj
+	signingkey = 8EA91304B5634563D11F119005FFC0CEF40B137B
+[gpg]
+	program = gpg

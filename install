@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="/home/ash/code/dotfiles"
+
 
 # Zsh
 ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
