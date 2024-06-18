@@ -1,0 +1,24 @@
+let mapleader = " "
+
+" My Mappings -----------------------------
+imap ;; <Esc>A;<Esc>
+imap ,, <Esc>A,<Esc>
+map <F2> :action Terminal<CR>
+map <leader>d :action ShowErrorDescription<CR>
+map [b :tabp<CR>
+map ]b :tabn<CR>
+map <leader>[ o<Esc>
+map <leader>] O<Esc>
+map <leader>q :q<CR>
+map <leader>f :action SearchEverywhere<CR>
+map <leader>n :action ActivateProjectToolWindow<CR>
+map <leader>g :action FindInPath<CR>
+map <leader>k :action ShowIntentionActions<CR>
+map K :action QuickJavaDoc<CR>
+map <leader>e <Plug>(easymotion-f)
+
+map ]d :action GotoNextError<CR>
+map [d :action GotoPreviousError<CR>
+
+map gcc :action CommentByLineComment<CR>
+
