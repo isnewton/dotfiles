@@ -92,8 +92,13 @@
 [init]
     defaultBranch = main
 [user]
-	email = ashrfalhag.11@gmail.com
+	email = 87209980+ISNewton@users.noreply.github.com
 	name = Ashraf Alhaj
 	signingkey = 8EA91304B5634563D11F119005FFC0CEF40B137B
 [gpg]
 	program = gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

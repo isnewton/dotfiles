@@ -79,26 +79,26 @@ return {
       capabilities = capabilities,
     })
 
-    require('lspconfig').tsserver.setup({
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-            languages = {"javascript", "typescript", "vue"},
-          },
-        },
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-      },
-    })
+    -- require('lspconfig').tsserver.setup({
+    --   init_options = {
+    --     plugins = {
+    --       {
+    --         name = "@vue/typescript-plugin",
+    --         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+    --         languages = {"javascript", "typescript", "vue"},
+    --       },
+    --     },
+    --   },
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --     "vue",
+    --   },
+    -- })
 
     -- Tailwind CSS
     require('lspconfig').tailwindcss.setup({ capabilities = capabilities })

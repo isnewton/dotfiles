@@ -57,3 +57,8 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
 -- vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
 -- vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
 -- vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+--
+--
+
+-- Quit insert mode with jj
+vim.keymap.set('i', 'jj', '<Esc>')

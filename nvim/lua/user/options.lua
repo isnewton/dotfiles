@@ -1,4 +1,5 @@
 vim.opt.cmdheight = 0
+vim.opt.encoding = 'utf-8'
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -39,3 +40,5 @@ vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.titlestring = '%f // nvim'
 vim.opt.inccommand = 'split'
+vim.opt.arabic = true
+vim.opt.termbidi = true
