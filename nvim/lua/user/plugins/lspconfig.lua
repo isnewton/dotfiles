@@ -67,7 +67,63 @@ return {
     --   }
     -- })
 
-    -- Vue, JavaScript, TypeScript
+    -- Python
+    require('lspconfig').pylsp.setup({
+      on_attach = function(client, bufnr)
+        -- if client.server_capabilities.inlayHintProvider then
+        --   vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
+      end,
+      capabilities = capabilities,
+      settings = {
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              enabled = true,
+              maxLineLength = 100
+            },
+            pyflakes = {
+              enabled = true
+            },
+            pydocstyle = {
+              enabled = false
+            },
+            pylint = {
+              enabled = false
+            },
+            yapf = {
+              enabled = false
+            },
+            autopep8 = {
+              enabled = false
+            }
+          }
+        }
+      }
+    })
+
+    -- React, TypeScript, JavaScript
+    require('lspconfig').tsserver.setup({
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        -- if client.server_capabilities.inlayHintProvider then
+        --   vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
+      end,
+      capabilities = capabilities,
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx"
+      },
+      root_dir = require('lspconfig.util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+    })
+
+    -- Vue
     require('lspconfig').volar.setup({
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
@@ -79,29 +135,20 @@ return {
       capabilities = capabilities,
     })
 
-    -- require('lspconfig').tsserver.setup({
-    --   init_options = {
-    --     plugins = {
-    --       {
-    --         name = "@vue/typescript-plugin",
-    --         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-    --         languages = {"javascript", "typescript", "vue"},
-    --       },
-    --     },
-    --   },
-    --   filetypes = {
-    --     "javascript",
-    --     "javascriptreact",
-    --     "javascript.jsx",
-    --     "typescript",
-    --     "typescriptreact",
-    --     "typescript.tsx",
-    --     "vue",
-    --   },
-    -- })
-
     -- Tailwind CSS
-    require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+    require('lspconfig').tailwindcss.setup({
+      capabilities = capabilities,
+      filetypes = {
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue"
+      },
+    })
 
     -- JSON
     require('lspconfig').jsonls.setup({
@@ -137,14 +184,19 @@ return {
       sources = {
         null_ls.builtins.diagnostics.eslint_d.with({
           condition = function(utils)
-            return utils.root_has_file({ '.eslintrc.js' })
+            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json', '.eslintrc' })
           end,
         }),
         -- null_ls.builtins.diagnostics.phpstan, -- TODO: Only if config file
         null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+        null_ls.builtins.diagnostics.flake8.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.flake8', 'setup.cfg', 'tox.ini', 'pyproject.toml' })
+          end,
+        }),
         null_ls.builtins.formatting.eslint_d.with({
           condition = function(utils)
-            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
+            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json', '.eslintrc' })
           end,
         }),
         null_ls.builtins.formatting.pint.with({
@@ -155,6 +207,15 @@ return {
         null_ls.builtins.formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({ '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.js', 'prettier.config.js' })
+          end,
+          filetypes = {
+            "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", 
+            "graphql", "handlebars", "javascript", "javascriptreact", "typescript", "typescriptreact"
+          },
+        }),
+        null_ls.builtins.formatting.black.with({
+          condition = function(utils)
+            return utils.root_has_file({ 'pyproject.toml', 'setup.cfg', '.black' })
           end,
         }),
       },
@@ -196,9 +257,9 @@ return {
     })
 
     -- Sign configuration
-    vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-    vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-    vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-    vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+    vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+    vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+    vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+    vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
   end,
 }

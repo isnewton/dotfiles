@@ -8,6 +8,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Close all open buffers.
 vim.keymap.set('n', '<leader>Q', ':bufdo bdelete<CR>')
 
+-- Save file.
+vim.keymap.set('n', '<leader>w', ':w<CR>')
+
 -- Diagnostics.
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [d]iagnostic' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [d]iagnostic' })

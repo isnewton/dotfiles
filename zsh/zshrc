@@ -164,7 +164,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/Code/jessarcher/dotfiles/scripts/login.sh
+    ~/code/dotfiles/scripts/login.sh
 fi
 
 # vim: nospell
