@@ -8,8 +8,9 @@ return {
   config = function()
     require("ai-commit").setup({
       -- your configuration
-      openrouter_api_key = "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",       -- or set OPENROUTER_API_KEY environment variable
+      openrouter_api_key = "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",       -- or set OPENROUTER_API_KEY environment variable
       model = "qwen/qwen-2.5-72b-instruct:free", -- default model
+      -- model = "deepseek/deepseek-prover-v2:free", -- default model
       auto_push = false,                         -- whether to automatically push after commit
     })
   end
